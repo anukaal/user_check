@@ -40,7 +40,13 @@ Bitbucket API.
 Example:
 
 python
-Copy code
+# Example: Fetch pull requests created by a user
+response = requests.get('https://api.github.com/repos/{owner}/{repo}/pulls?state=all&creator={user}')
+prs = response.json()
+for pr in prs:
+    print(f"PR Title: {pr['title']}, State: {pr['state']}")
+
+
 # Example: Fetch pull requests created by a user
 response = requests.get('https://api.github.com/repos/{owner}/{repo}/pulls?state=all&creator={user}')
 prs = response.json()
