@@ -1,0 +1,40 @@
+Here’s a concise summary of implementing and evaluating user proficiency based on code contributions:
+
+1. **Code Contributions (Pushes)**  
+   - **Data Collection**: Use Git APIs (e.g., GitHub `/commits`) to track user commits.  
+   - **Language Detection**: Analyze file extensions or use tools like Linguist to detect programming languages.  
+   - **Weighting**: Assign scores based on commit frequency and dominant languages.  
+
+2. **Pull Request (PR) Creation**  
+   - **Data Collection**: Track PRs using APIs like GitHub `/pulls?creator={user}`.  
+   - **Weighting**: Categorize PRs by type (features > bug fixes). Use branch naming or commit messages to classify.  
+
+3. **Pull Request Merges**  
+   - **Data Collection**: Fetch merged PRs using APIs (`merged_at` field).  
+   - **Weighting**: Successful merges indicate higher proficiency; prioritize PRs merged with minimal review changes.  
+
+4. **Pull Request Rejections**  
+   - **Data Collection**: Identify closed but unmerged PRs.  
+   - **Weighting**: Frequent rejections can lower proficiency scores, especially if tied to poor code quality.  
+
+5. **Contribution Type**  
+   - **Data Collection**: Categorize work into features, bug fixes, refactoring, etc., using commit messages or branch naming.  
+   - **Weighting**: Complex contributions (e.g., features, refactoring) receive higher weight.  
+
+6. **Code Review Participation**  
+   - **Data Collection**: Fetch user reviews (e.g., GitHub `/pulls/reviews`).  
+   - **Weighting**: Quality and frequency of reviews demonstrate proficiency in code standards.  
+
+7. **Language Breakdown**  
+   - **Data Collection**: Analyze file types to detect programming languages.  
+   - **Weighting**: High contribution levels in certain languages indicate proficiency.  
+
+8. **Issue Resolution and Linkage**  
+   - **Data Collection**: Track issues resolved through linked commits or PRs (e.g., GitHub `/issues`).  
+   - **Weighting**: Higher scores for resolving high-priority or complex issues.  
+
+9. **Task Complexity**  
+   - **Data Collection**: Fetch task complexity data from Jira or similar tools.  
+   - **Weighting**: Assign higher scores for completing complex tasks tied to code contributions.  
+
+**Tools**: GitHub, GitLab, Bitbucket APIs; Jira API for task tracking; Linguist for language detection; and NLP for commit message parsing.
